@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Disc3, Eye, EyeOff } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_URL ?? (import.meta.env.PROD ? '' : 'http://localhost:5000');
 
 const LoginPage = ({ onLogin, onNavigate }) => {
   const [activeTab, setActiveTab] = useState('login');
