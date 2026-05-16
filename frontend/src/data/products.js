@@ -1,5 +1,5 @@
 export const products = [
-  // ── Guitars ──────────────────────────────────────
+  // Guitars
   {
     id: 1,
     name: "Obsidian Vertex Electric Guitar",
@@ -23,7 +23,7 @@ export const products = [
     featured: true,
   },
 
-  // ── Keyboards ─────────────────────────────────────
+  // Keyboards
   {
     id: 3,
     name: "Grand Studio Piano",
@@ -47,7 +47,7 @@ export const products = [
     featured: false,
   },
 
-  // ── Drums & Percussion ────────────────────────────
+  // Drums & Percussion
   {
     id: 5,
     name: "Stage Pro Drum Kit",
@@ -82,7 +82,7 @@ export const products = [
     featured: false,
   },
 
-  // ── Wind Instruments ──────────────────────────────
+  // Wind Instruments
   {
     id: 8,
     name: "Gold Alto Saxophone",
@@ -106,7 +106,7 @@ export const products = [
     featured: false,
   },
 
-  // ── Accessories ───────────────────────────────────
+  // Accessories
   {
     id: 10,
     name: "JBL GO4 Portable Speaker",

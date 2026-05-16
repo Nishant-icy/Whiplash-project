@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ShoppingCart, Disc3, User } from 'lucide-react';
 
 const Navbar = ({ cartCount, user, onNavigate, onCartOpen }) => {

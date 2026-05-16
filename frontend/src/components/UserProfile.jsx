@@ -1,9 +1,8 @@
-import React from 'react';
 import { Package, Heart, Settings, LogOut, Star } from 'lucide-react';
 import { products } from '../data/products';
 
 const UserProfile = ({ user, onLogout, onNavigate }) => {
-  // No mock orders — orders would come from a real API in future
+  // No mock orders yet; orders would come from a real API in future.
   const orders = [];
 
   return (

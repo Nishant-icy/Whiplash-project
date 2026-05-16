@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Disc3, Eye, EyeOff } from 'lucide-react';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const LoginPage = ({ onLogin, onNavigate }) => {
   const [activeTab, setActiveTab] = useState('login');
@@ -33,7 +35,7 @@ const LoginPage = ({ onLogin, onNavigate }) => {
 
     try {
       const endpoint = activeTab === 'signup' ? '/api/auth/signup' : '/api/auth/login';
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

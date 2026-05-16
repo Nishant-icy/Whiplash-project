@@ -3,21 +3,30 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const User = require('./models/User');
 
 const app = express();
-app.use(cors());
+const corsOptions = process.env.CLIENT_URL
+  ? { origin: process.env.CLIENT_URL }
+  : {};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
-const PORT = 5000;
-const JWT_SECRET = 'supersecretkeywhiplash';
-const MONGO_URI = 'mongodb://127.0.0.1:27017/whiplash';
+const PORT = process.env.PORT || 5000;
+const JWT_SECRET = process.env.JWT_SECRET || 'change-this-secret-in-env';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/whiplash';
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('Connected to MongoDB (whiplash DB)'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
-// ── Signup Route ──
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+// Signup route
 app.post('/api/auth/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -60,7 +69,7 @@ app.post('/api/auth/signup', async (req, res) => {
   }
 });
 
-// ── Login Route ──
+// Login route
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;

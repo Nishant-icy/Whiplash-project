@@ -1,7 +1,6 @@
-import React from 'react';
 import { Play, Zap } from 'lucide-react';
 
-/* ── Inline SVG Instruments ───────────────────────────────── */
+/* Inline SVG instruments */
 
 const DrumKit = () => (
   <svg viewBox="0 0 120 120" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +113,7 @@ const Microphone = () => (
   </svg>
 );
 
-/* ── Floating instrument wrapper ──────────────────────────── */
+/* Floating instrument wrapper */
 const InstrumentFloat = ({ children, style, rotate = 0, size = 160, animDelay = '0s', label }) => (
   <div
     style={{
@@ -193,11 +192,11 @@ const Note = ({ char, style, rotate = 0, size = 26, color = 'var(--primary-dark)
   </span>
 );
 
-/* ── Hero Component ───────────────────────────────────────── */
+/* Hero component */
 const Hero = () => (
   <section className="hero hero-scattered">
 
-    {/* Instrument images — 4 corners */}
+    {/* Instrument images in the four corners */}
     <InstrumentFloat size={170} rotate={-10} animDelay="0s"   label="Drums"    style={{ top: '10%', left: '1%' }}>
       <DrumKit />
     </InstrumentFloat>

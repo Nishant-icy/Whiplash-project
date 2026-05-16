@@ -1,4 +1,3 @@
-import React from 'react';
 import { Disc3, Mail, Phone, Globe } from 'lucide-react';
 
 const Footer = () => {
