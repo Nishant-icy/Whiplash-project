@@ -13,21 +13,18 @@ const Navbar = ({ cartCount, user, onNavigate, onCartOpen }) => {
   return (
     <nav className="navbar" style={scrolled ? { padding: '0.6rem 0' } : {}}>
       <div className="container nav-container">
-        {/* Logo */}
         <button className="logo" onClick={() => onNavigate('home')} style={{ background: 'none', border: 'none' }}>
           <Disc3 className="logo-icon" size={30} />
           <span>WHIPLASH</span>
         </button>
 
-        {/* Nav Links */}
         <ul className="nav-links">
           <li><button className="nav-link" onClick={() => onNavigate('home')}>Home</button></li>
           <li><a href="#products" className="nav-link">Instruments</a></li>
-          <li><a href="#products" className="nav-link">Audio Pro</a></li>
+          <li><a href="#products" className="nav-link">Accessories</a></li>
           <li><a href="#" className="nav-link">About</a></li>
         </ul>
 
-        {/* Actions */}
         <div className="nav-actions">
           <button id="cart-btn" className="cart-btn" aria-label="Shopping cart" onClick={onCartOpen}>
             <ShoppingCart size={22} />

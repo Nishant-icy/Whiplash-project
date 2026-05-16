@@ -1,6 +1,8 @@
 import React from 'react';
 import { Plus, Star } from 'lucide-react';
 
+const fmt = (n) => '₹' + n.toLocaleString('en-IN');
+
 const ProductCard = ({ product, onAddToCart }) => {
   return (
     <div className="product-card">
@@ -22,12 +24,9 @@ const ProductCard = ({ product, onAddToCart }) => {
         <div className="product-rating">
           <span className="product-stars">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star
-                key={i}
-                size={13}
+              <Star key={i} size={13}
                 fill={i < Math.round(product.rating) ? '#f5c518' : 'none'}
-                stroke="#c49000"
-                strokeWidth={1.5}
+                stroke="#c49000" strokeWidth={1.5}
               />
             ))}
           </span>
@@ -36,12 +35,8 @@ const ProductCard = ({ product, onAddToCart }) => {
         </div>
 
         <div className="product-footer">
-          <span className="product-price">${product.price.toFixed(2)}</span>
-          <button
-            className="add-to-cart-btn"
-            onClick={() => onAddToCart(product)}
-            aria-label="Add to cart"
-          >
+          <span className="product-price">{fmt(product.price)}</span>
+          <button className="add-to-cart-btn" onClick={() => onAddToCart(product)} aria-label="Add to cart">
             <Plus size={22} />
           </button>
         </div>

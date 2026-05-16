@@ -1,15 +1,14 @@
 import React from 'react';
-import { X, ShoppingCart, Trash2 } from 'lucide-react';
+import { X, Trash2 } from 'lucide-react';
+
+const fmt = (n) => '₹' + n.toLocaleString('en-IN');
 
 const CartDrawer = ({ open, onClose, items, onQtyChange, onRemove }) => {
   const total = items.reduce((sum, i) => sum + i.price * i.qty, 0);
 
   return (
     <>
-      {/* Overlay */}
       <div className={`cart-overlay${open ? ' open' : ''}`} onClick={onClose} />
-
-      {/* Drawer */}
       <div className={`cart-drawer${open ? ' open' : ''}`}>
         <div className="cart-header">
           <h2>🛒 Your Haul</h2>
@@ -31,7 +30,7 @@ const CartDrawer = ({ open, onClose, items, onQtyChange, onRemove }) => {
                 <img src={item.image} alt={item.name} className="cart-item-img" />
                 <div className="cart-item-info">
                   <div className="cart-item-name">{item.name}</div>
-                  <div className="cart-item-price">${(item.price * item.qty).toFixed(2)}</div>
+                  <div className="cart-item-price">{fmt(item.price * item.qty)}</div>
                 </div>
                 <div className="cart-item-qty">
                   <button className="qty-btn" onClick={() => onQtyChange(item.id, -1)}>−</button>
@@ -50,11 +49,9 @@ const CartDrawer = ({ open, onClose, items, onQtyChange, onRemove }) => {
           <div className="cart-footer">
             <div className="cart-total-row">
               <span className="cart-total-label">Total</span>
-              <span className="cart-total-amount">${total.toFixed(2)}</span>
+              <span className="cart-total-amount">{fmt(total)}</span>
             </div>
-            <button className="btn btn-primary cart-checkout-btn">
-              ⚡ Checkout
-            </button>
+            <button className="btn btn-primary cart-checkout-btn">⚡ Checkout</button>
           </div>
         )}
       </div>

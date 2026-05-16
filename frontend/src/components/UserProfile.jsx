@@ -138,7 +138,7 @@ const UserProfile = ({ user, onLogout, onNavigate }) => {
                 >
                   <img src={p.image} alt={p.name} style={{ width: '100%', height: '90px', objectFit: 'contain', marginBottom: '0.75rem' }} />
                   <p style={{ fontSize: '0.85rem', fontWeight: 700, marginBottom: '0.25rem', color: 'var(--ink)' }}>{p.name}</p>
-                  <p style={{ fontFamily: "'Bangers', cursive", fontSize: '1.1rem', color: 'var(--accent)', letterSpacing: '0.5px' }}>${p.price.toFixed(2)}</p>
+                  <p style={{ fontFamily: "'Bangers', cursive", fontSize: '1.1rem', color: 'var(--accent)', letterSpacing: '0.5px' }}>₹${p.price.toLocaleString('en-IN')}</p>
                 </div>
               ))}
             </div>
