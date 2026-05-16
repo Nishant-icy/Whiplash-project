@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Disc3, User } from 'lucide-react';
 
-const Navbar = ({ cartCount, user, onNavigate }) => {
+const Navbar = ({ cartCount, user, onNavigate, onCartOpen }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -11,12 +11,12 @@ const Navbar = ({ cartCount, user, onNavigate }) => {
   }, []);
 
   return (
-    <nav className="navbar" style={scrolled ? { padding: '0.85rem 0' } : {}}>
+    <nav className="navbar" style={scrolled ? { padding: '0.6rem 0' } : {}}>
       <div className="container nav-container">
         {/* Logo */}
         <button className="logo" onClick={() => onNavigate('home')} style={{ background: 'none', border: 'none' }}>
-          <Disc3 className="logo-icon" size={32} />
-          <span className="text-gradient">Whiplash</span>
+          <Disc3 className="logo-icon" size={30} />
+          <span>WHIPLASH</span>
         </button>
 
         {/* Nav Links */}
@@ -29,8 +29,8 @@ const Navbar = ({ cartCount, user, onNavigate }) => {
 
         {/* Actions */}
         <div className="nav-actions">
-          <button id="cart-btn" className="cart-btn" aria-label="Shopping cart">
-            <ShoppingCart size={24} />
+          <button id="cart-btn" className="cart-btn" aria-label="Shopping cart" onClick={onCartOpen}>
+            <ShoppingCart size={22} />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </button>
 
@@ -47,11 +47,11 @@ const Navbar = ({ cartCount, user, onNavigate }) => {
           ) : (
             <button
               id="login-btn"
-              className="btn btn-primary"
+              className="btn btn-outline"
               onClick={() => onNavigate('login')}
-              style={{ padding: '0.55rem 1.25rem', fontSize: '0.9rem' }}
+              style={{ padding: '0.45rem 1rem', fontSize: '0.95rem', background: 'white' }}
             >
-              <User size={16} />
+              <User size={15} />
               Sign In
             </button>
           )}

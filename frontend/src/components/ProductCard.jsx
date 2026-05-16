@@ -4,7 +4,6 @@ import { Plus, Star } from 'lucide-react';
 const ProductCard = ({ product, onAddToCart }) => {
   return (
     <div className="product-card">
-      {/* Badge */}
       {product.badge && (
         <div className={`product-badge product-badge--${product.badge.toLowerCase().replace(' ', '-')}`}>
           {product.badge}
@@ -20,7 +19,6 @@ const ProductCard = ({ product, onAddToCart }) => {
         <div className="product-category">{product.category}</div>
         <h3 className="product-name">{product.name}</h3>
 
-        {/* Rating row */}
         <div className="product-rating">
           <span className="product-stars">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -28,7 +26,7 @@ const ProductCard = ({ product, onAddToCart }) => {
                 key={i}
                 size={13}
                 fill={i < Math.round(product.rating) ? '#f5c518' : 'none'}
-                stroke="#d4a800"
+                stroke="#c49000"
                 strokeWidth={1.5}
               />
             ))}
@@ -41,7 +39,7 @@ const ProductCard = ({ product, onAddToCart }) => {
           <span className="product-price">${product.price.toFixed(2)}</span>
           <button
             className="add-to-cart-btn"
-            onClick={onAddToCart}
+            onClick={() => onAddToCart(product)}
             aria-label="Add to cart"
           >
             <Plus size={22} />
